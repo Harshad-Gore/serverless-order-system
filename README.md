@@ -266,3 +266,16 @@ terraform state pull > backup.tfstate
 ### DynamoDB Access Denied
 
 Verify IAM role permissions are correctly attached to the Lambda function.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contact
+
+**Discord**: raybyte
+
