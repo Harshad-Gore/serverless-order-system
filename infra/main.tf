@@ -197,12 +197,18 @@ resource "aws_api_gateway_deployment" "order_api_deployment" {
   ]
 
   rest_api_id = aws_api_gateway_rest_api.order_api.id
-  stage_name  = "prod"
+}
+
+# api gateway stage
+resource "aws_api_gateway_stage" "prod" {
+  deployment_id = aws_api_gateway_deployment.order_api_deployment.id
+  rest_api_id   = aws_api_gateway_rest_api.order_api.id
+  stage_name    = "prod"
 }
 
 # outputs
 output "api_endpoint" {
-  value       = "${aws_api_gateway_deployment.order_api_deployment.invoke_url}/orders"
+  value       = "${aws_api_gateway_stage.prod.invoke_url}/orders"
   description = "API Gateway endpoint URL"
 }
 
